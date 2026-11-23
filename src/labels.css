@@ -1,13 +1,31 @@
+.period h2.month-selected{position:relative;flex:1;padding:10px 18px;border-left:5px solid var(--accent);border-radius:0 12px 12px 0;background:linear-gradient(90deg,var(--accent-wash),transparent);font-size:clamp(23px,2.7vw,34px);font-weight:800;line-height:1.2}
 .label-toolbar{align-items:center}.label-toolbar .hint{margin:8px 0 0;max-width:500px}
 .calendar-cell{min-width:0;display:flex;flex-direction:column;border:1px solid var(--border);border-radius:12px;background:var(--bg)}
 .calendar-cell .day{flex:1;border:0;border-radius:11px 11px 0 0;padding:12px 6px;min-height:100px;justify-content:flex-start}
 .calendar-cell .day.current{outline-offset:0}
-.day>.calendar-label{font-size:14px;font-weight:600;line-height:1.4;color:#e0bbff;background:#b679ff20;border:1px solid #b679ff45;padding:5px;border-radius:6px;width:100%;white-space:normal;overflow-wrap:anywhere}
-.light .day>.calendar-label,.light .weekly-date-label{color:#6c3690}
+.day>.calendar-label{display:flex;flex-direction:column;gap:2px;font-size:12px;font-weight:600;line-height:1.25;color:var(--tag);background:var(--tag-wash);border:1px solid color-mix(in srgb,var(--tag) 28%,var(--border));padding:4px;border-radius:6px;width:100%;white-space:normal;overflow-wrap:anywhere}
+.calendar-label time,.weekly-date-label time,.date-highlight time{font-size:.88em;font-weight:700;white-space:nowrap}
+.calendar-label time{opacity:.82}
+.light .day>.calendar-label,.light .weekly-date-label{color:var(--tag)}
 .label-shortcut{min-height:44px;font-size:12px;color:var(--muted);background:transparent;border-top:1px solid var(--border);border-radius:0 0 11px 11px;padding:7px 3px;overflow-wrap:anywhere}
-.label-shortcut:hover{color:var(--text);background:#b679ff15}
-.date-highlight{display:flex;align-items:center;gap:18px;padding:22px 24px;background:#b679ff12;border:1px solid #b679ff55;border-radius:16px;margin-bottom:24px;animation:rise-in .3s ease both}
-.label-symbol{color:#d2a3f3;font-size:24px}.date-highlight>div{flex:1;min-width:0}.date-highlight small{font-size:12px;font-weight:700;letter-spacing:1.4px;color:var(--muted);display:block;margin-bottom:8px}.date-highlight strong{display:block;font-size:22px;line-height:1.4;overflow-wrap:anywhere}
-.weekly-date-label{font-size:14px;line-height:1.5;color:#e0bbff;background:#b679ff15;border-bottom:1px solid #b679ff30;padding:12px 16px;margin:0;overflow-wrap:anywhere}
-@media(max-width:760px){.label-toolbar{align-items:flex-start;flex-direction:column}.date-highlight{padding:18px 16px;gap:12px;flex-wrap:wrap}.date-highlight strong{font-size:20px}.date-highlight .quiet{margin-left:36px}.calendar{gap:5px}.calendar-cell .day{padding:10px 3px;min-height:80px}.calendar-cell{border-radius:8px}.label-shortcut{font-size:11px}.day>.calendar-label{font-size:12px;padding:4px 2px}.label-toolbar .primary{width:100%}}
+.label-shortcut:hover{color:var(--text);background:var(--tag-wash)}
+.date-highlight{display:flex;align-items:center;gap:14px;padding:16px 18px;background:var(--tag-wash);border:1px solid color-mix(in srgb,var(--tag) 32%,var(--border));border-radius:12px;margin-bottom:18px;animation:rise-in .3s ease both}
+.label-symbol{color:var(--tag);font-size:20px}.date-highlight>div{flex:1;min-width:0}.date-highlight small{font-size:10px;font-weight:700;letter-spacing:1.1px;color:var(--muted);display:block;margin-bottom:5px}.date-highlight strong{display:block;font-size:17px;font-weight:700;line-height:1.35;overflow-wrap:anywhere}
+.weekly-date-label{display:flex;align-items:flex-start;gap:7px;font-size:14px;line-height:1.5;color:var(--tag);background:var(--tag-wash);border-bottom:1px solid color-mix(in srgb,var(--tag) 24%,var(--border));padding:12px 16px;margin:0;overflow-wrap:anywhere}
+.date-label-items{display:grid;gap:5px;min-width:0}
+.date-label-item{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px;overflow-wrap:anywhere}
+.date-highlight .date-label-items{font-size:15px;font-weight:700}
+.date-highlight .date-label-item{line-height:1.35}
+.label-manager{max-width:560px}
+.label-manager-list{list-style:none;display:grid;gap:8px;padding:0;margin:0 0 20px}
+.label-manager-list li{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px;background:var(--bg);border:1px solid var(--border);border-radius:10px}
+.label-manager-copy{display:flex;align-items:baseline;flex-wrap:wrap;gap:8px;min-width:0;overflow-wrap:anywhere}
+.label-manager-copy strong{line-height:1.4}
+.label-manager-copy time{color:var(--accent);font-size:13px;font-weight:700}
+.label-manager-form{border-top:1px solid var(--border);padding-top:18px;margin-top:8px}
+.label-manager-form h3{margin:0 0 16px}
+.label-manager-form input{display:block;width:100%;border:1px solid var(--border);background:var(--bg);color:var(--text);border-radius:9px;padding:14px;margin:10px 0 20px;font-size:16px}
+.label-manager-footer{justify-content:space-between!important}
+.label-manager .hint{margin-bottom:20px}
+@media(max-width:760px){.period h2.month-selected{padding:8px 10px;font-size:18px}.period h2.month-selected::before{font-size:8px;letter-spacing:1px}.label-toolbar{align-items:flex-start;flex-direction:column}.date-highlight{padding:14px 12px;gap:10px;flex-wrap:wrap}.date-highlight strong{font-size:16px}.date-highlight .date-label-items{font-size:14px}.date-highlight .quiet{margin-left:31px}.calendar{gap:5px}.calendar-cell .day{padding:5px 3px;min-height:52px}.calendar-cell{border-radius:8px}.label-shortcut{font-size:11px}.day>.calendar-label{font-size:11px;padding:4px 2px}.label-manager-list li{align-items:flex-start;flex-direction:column}.label-manager-list .row-actions{width:100%}.label-toolbar .primary{width:100%}}
 @media(prefers-reduced-motion:reduce){.date-highlight{animation:none}}

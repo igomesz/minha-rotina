@@ -8,7 +8,7 @@ button:not(:disabled):active,.button:active { transform: scale(.96); }
  .primary:hover { transform: translateY(-2px); box-shadow: 0 7px 22px #92dba525; }
  .day:hover,.month-tile:hover { transform: translateY(-3px); box-shadow: 0 7px 20px #0002; }
  nav button:hover { transform: translateX(3px); }
- .task:hover { background: #8acfa509; }
+ .task:hover { background: var(--accent-wash); }
 }
 main>.heading,main>.today-grid,main>.card,main>.months,main>.stat-strip,main>.period { animation: rise-in .38s cubic-bezier(.2,.7,.3,1) both; }
 main>.today-grid,main>.months { animation-delay: .035s; }

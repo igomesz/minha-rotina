@@ -11,10 +11,12 @@ test('Postgres: contas isoladas, acesso anônimo negado e conflitos sem sobrescr
   await db.exec(`create role anon; create role authenticated; create schema auth; create table auth.users(id uuid primary key); create function auth.uid() returns uuid language sql stable as $$ select nullif(current_setting('request.jwt.claim.sub',true),'')::uuid $$; grant usage on schema auth to anon,authenticated; grant execute on function auth.uid() to anon,authenticated; insert into auth.users values('11111111-1111-4111-8111-111111111111'),('22222222-2222-4222-8222-222222222222');`);
   await db.exec(await readFile(new URL('../supabase/setup.sql',import.meta.url),'utf8'));
   await db.exec(`set role authenticated; set request.jwt.claim.sub='11111111-1111-4111-8111-111111111111';`);
-  const a={...empty(),labels:{'2026-11-23':'Só da conta A'}};
+  const a={...empty(),tasks:[{id:'a',versions:[{from:'2026-11-23',name:'Estudar',days:[1],time:'08:30'}]}],order:{'2026-11-23':['a']},labels:{'2026-11-23':[{id:'tag-1',text:'Só da conta A'},{id:'tag-2',text:'Consulta',time:'09:45'}]}};
   const first=await db.query('select public.save_my_routine($1::jsonb,0) as saved',[JSON.stringify(a)]);
   assert.equal(first.rows[0].saved.revision,1);
-  assert.equal((await db.query('select payload from public.routine_state')).rows[0].payload.labels['2026-11-23'],'Só da conta A');
+  assert.deepEqual((await db.query('select payload from public.routine_state')).rows[0].payload.labels['2026-11-23'],a.labels['2026-11-23']);
+  assert.equal((await db.query('select payload from public.routine_state')).rows[0].payload.tasks[0].versions[0].time,'08:30');
+  assert.deepEqual((await db.query('select payload from public.routine_state')).rows[0].payload.order['2026-11-23'],['a']);
   await assert.rejects(()=>db.query('select public.save_my_routine($1::jsonb,0)',[JSON.stringify(empty())]),e=>e.code==='40001');
   assert.deepEqual((await db.query('select payload from public.routine_state')).rows[0].payload,a);
   await db.exec(`set request.jwt.claim.sub='22222222-2222-4222-8222-222222222222';`);
