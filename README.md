@@ -26,6 +26,8 @@ Aplicativo web pessoal para acompanhar a rotina do dia a dia: marque as tarefas 
 
 1. Clone o repositório e instale as dependências:
    ```bash
+   git clone https://github.com/igomesz/minha-rotina.git
+   cd minha-rotina
    npm install
    ```
 2. Copie o arquivo `.env.example` para `.env` e preencha com as credenciais públicas do seu projeto Supabase.
