@@ -1,0 +1,38 @@
+/* Movimentos curtos e respeito à preferência de movimento reduzido. */
+@property --value { syntax: '<percentage>'; inherits: false; initial-value: 0%; }
+.app,aside,.card,.modal,.ring>div { transition: background-color .25s ease, color .25s ease, border-color .25s ease; }
+button,.button { transition: transform .18s ease, background-color .2s ease, color .2s ease, box-shadow .2s ease, border-color .2s ease; touch-action: manipulation; }
+button:not(:disabled):active,.button:active { transform: scale(.96); }
+.primary { box-shadow: 0 3px 12px #0001; }
+@media (hover:hover) {
+ .primary:hover { transform: translateY(-2px); box-shadow: 0 7px 22px #92dba525; }
+ .day:hover,.month-tile:hover { transform: translateY(-3px); box-shadow: 0 7px 20px #0002; }
+ nav button:hover { transform: translateX(3px); }
+ .task:hover { background: #8acfa509; }
+}
+main>.heading,main>.today-grid,main>.card,main>.months,main>.stat-strip,main>.period { animation: rise-in .38s cubic-bezier(.2,.7,.3,1) both; }
+main>.today-grid,main>.months { animation-delay: .035s; }
+.week-preview { animation-delay: .07s !important; }
+.ring { transition: --value .65s cubic-bezier(.22,.7,.25,1); }
+.bar span { transition: width .6s cubic-bezier(.22,.7,.25,1),background-color .3s ease; }
+.task { border-radius: 10px; padding: 0 8px; transition: background-color .25s ease; }
+.task>span,.task small { transition: color .25s ease; }
+.task.done { background: #8acfa50b; }
+.task input { transition: transform .2s ease; }
+.task input:checked { animation: check-pop .28s ease-out; }
+.task.done .task-status { color: var(--accent); animation: rise-in .25s ease-out; }
+.overlay { animation: fade-in .18s ease-out; }
+.modal { animation: modal-in .26s cubic-bezier(.2,.8,.3,1); }
+.notice,.alert { animation: rise-in .25s ease-out; }
+.notice { border: 1px solid #7ecb9855; }
+.task-filters { display:flex;justify-content:flex-end;margin:0 0 16px; }
+.task-filters [aria-pressed=true] { color:var(--accent);border-color:var(--accent); }
+.danger:hover { background:#eb807a15;border-color:#ed9e98; }
+@keyframes rise-in { from { opacity:0;transform:translateY(9px); } to { opacity:1;transform:translateY(0); } }
+@keyframes fade-in { from { opacity:0; } to { opacity:1; } }
+@keyframes modal-in { from { opacity:0;transform:translateY(14px) scale(.98); } to { opacity:1;transform:translateY(0) scale(1); } }
+@keyframes check-pop { 0% { transform:scale(.9); } 60% { transform:scale(1.16); } 100% { transform:scale(1); } }
+@media(prefers-reduced-motion:reduce) {
+ *,*::before,*::after { animation:none !important;transition:none !important;scroll-behavior:auto !important; }
+ button:hover,.day:hover,.month-tile:hover { transform:none !important; }
+}

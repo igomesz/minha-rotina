@@ -1,0 +1,41 @@
+# Dependências (recriadas com `npm install`)
+node_modules/
+
+# Resultado do build (a Vercel gera automaticamente a cada deploy)
+dist/
+build/
+
+# Variáveis de ambiente e segredos: NUNCA devem subir para o GitHub
+.env
+.env.*
+!.env.example
+*.local
+*.pem
+*.key
+
+# Configuração local da Vercel e do Supabase CLI
+.vercel/
+supabase/.branches/
+supabase/.temp/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Cache de ferramentas
+.cache/
+.parcel-cache/
+.vite/
+*.tsbuildinfo
+coverage/
+
+# Editor e sistema operacional
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+*.swp

@@ -1,0 +1,99 @@
+MINHA ROTINA — GUIA PARA COMEÇAR
+
+1. O QUE ESTÁ PRONTO
+Aplicativo em português, feito com React e Vite, sem cadastro e sem chaves.
+Tem Hoje, Semana, Mês, Visão geral, detalhes do dia e gerenciamento de tarefas.
+Os dados ficam no navegador. NÃO há sincronização entre celular e computador.
+Não é necessário criar conta no Supabase, GitHub ou Vercel para testar localmente.
+
+2. ABRIR NO COMPUTADOR
+Nesta pasta, dê dois cliques em INICIAR.cmd.
+Mantenha a janela que aparecer aberta.
+Abra seu navegador habitual e digite http://localhost:5173/
+Se o app já estiver aberto pelo Codex, basta usar esse endereço.
+Use sempre o mesmo navegador e o mesmo endereço para encontrar seus dados.
+Para parar, volte à janela e pressione Ctrl+C. Fechar o servidor não apaga os dados.
+O iniciador usa o Node já disponível neste computador pelo Codex. Se ele deixar
+de estar disponível, instale a versão LTS do Node pelo site oficial nodejs.org.
+Não abra index.html com dois cliques: use o endereço acima.
+
+3. PRIMEIRO TESTE, PASSO A PASSO
+Clique em Nova tarefa. Digite Inglês. Marque o dia de hoje e clique em Salvar tarefa.
+Crie Academia, também programada para hoje.
+Entre em Hoje: duas tarefas desmarcadas devem mostrar 0%.
+Marque Inglês: deve mostrar 50%. Marque Academia: deve mostrar 100%.
+Atualize a página: as marcações devem continuar lá.
+Abra Semana, Mês e Visão geral para acompanhar os percentuais.
+Toque em um dia do calendário para ver suas tarefas. Datas futuras não podem
+ser marcadas. Dias passados podem ser corrigidos.
+Seu histórico começa quando você cria suas tarefas; nada é inventado para antes.
+
+4. TESTAR NO CELULAR
+Conecte o celular e o computador à mesma rede Wi-Fi.
+Com INICIAR.cmd aberto, copie no navegador do celular o endereço exibido em
+"No celular". Ele começa com http://192.168... ou outro IP da sua rede.
+Não digite localhost no celular, pois ele apontaria para o próprio telefone.
+O computador precisa continuar ligado e o servidor aberto.
+Se o Windows perguntar se o Node pode acessar a rede, permita somente na sua
+rede privada doméstica. Não configure encaminhamento de portas no roteador.
+Se não abrir, confira o Wi-Fi e as permissões de rede privada no Firewall.
+O endereço do computador pode mudar ao reconectar o Wi-Fi. Isso também muda
+o local onde o navegador do celular procura os dados: exporte backups regulares.
+
+5. NÃO PERDER SEU HISTÓRICO
+Em Tarefas, clique em Exportar backup e guarde o arquivo .json.
+Faça isso regularmente e antes de limpar dados do navegador ou mudar de endereço.
+Para levar os dados a outro dispositivo, envie o arquivo para ele e use Importar
+backup no aplicativo desse dispositivo.
+A importação SUBSTITUI os dados existentes; ela não junta dois históricos.
+Não use aba anônima para sua rotina diária.
+O navegador interno do Codex e seu Chrome/Edge habitual também têm dados separados.
+
+6. COMO OS CÁLCULOS FUNCIONAM
+Cada tarefa tem o mesmo peso no dia.
+Percentual diário = tarefas concluídas / tarefas previstas × 100.
+A média semanal/mensal é a média dos percentuais dos dias com tarefas até hoje.
+Dias sem tarefas e datas futuras não entram na média.
+Hoje entra na média mesmo que você ainda não tenha terminado todas as tarefas.
+As semanas começam na segunda-feira. O fuso é America/Sao_Paulo.
+Na tela Mês, cada semana considera somente os dias pertencentes àquele mês.
+O traço indica ausência de dias avaliáveis. Vermelho significa menor conclusão;
+verde significa maior conclusão. Os números continuam visíveis para acessibilidade.
+
+7. EDITAR E ARQUIVAR
+Novas tarefas começam hoje.
+Editar nome ou dias vale a partir de amanhã. A agenda anterior é preservada.
+Arquivar remove a tarefa das agendas a partir de amanhã; hoje e o passado ficam.
+Mesmo sem abrir o app por alguns dias, as agendas históricas são reconstruídas
+pelas versões datadas, mantendo os dias antigos corretos.
+
+8. INSTALAÇÃO NO CELULAR E PUBLICAÇÃO
+O manifesto, os ícones e o service worker do PWA já estão incluídos.
+O acesso local por IP e HTTP serve para testar; não oferece a instalação PWA
+completa no celular. Para isso, a próxima etapa será publicar com HTTPS no Vercel.
+A publicação ainda NÃO foi realizada. Nenhuma conta externa foi criada.
+Depois de publicado, o celular poderá abrir o app sem depender do computador.
+Os dados continuarão separados até uma futura integração com banco na nuvem.
+Antes de migrar para o endereço publicado, exporte e depois importe seu backup.
+Após uma primeira visita online, o service worker pode servir os arquivos em cache.
+Como esta versão salva localmente, marcar tarefas não exige acesso à nuvem.
+O funcionamento offline e a instalação ainda precisam ser testados no seu celular.
+
+9. PARA DESENVOLVER MAIS TARDE
+Com Node e npm instalados, abra um terminal nesta pasta:
+  npm install
+  npm run dev
+Para gerar uma nova versão:
+  npm run build
+  node server.mjs
+Para executar os testes de regras:
+  npm test
+O código da interface está em src/main.jsx e src/style.css.
+As regras de histórico e médias estão em src/model.js.
+A pasta dist contém a versão compilada que INICIAR.cmd abre.
+
+10. VERIFICAÇÃO DESTA ENTREGA
+Cinco testes automatizados de regras passaram. A compilação de produção passou.
+A tela inicial e o formulário de criação foram conferidos no navegador do PC.
+A interação completa, a importação de arquivos e o celular físico ainda devem
+ser testados seguindo os passos acima. Não há login nem sincronização na nuvem.
