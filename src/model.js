@@ -1,6 +1,7 @@
 import {validGithubUsername} from './github-username.js';
 export const KEY = 'minha-rotina-v1';
 export const LABEL_COLORS = ['green','lime','blue','violet','rose','amber'];
+export const LABEL_COLOR_OPTIONS = ['green','blue','violet','rose'];
 export const POMODORO_MODES = ['focus','shortBreak','longBreak'];
 export const defaultPomodoro=()=>({durations:{focus:25,shortBreak:5,longBreak:15},mode:'focus',taskId:'',session:null});
 const QUOTES = [

@@ -14,14 +14,14 @@ button, a, .button { -webkit-tap-highlight-color: transparent; }
 button { color: inherit; border: 0; }
 button:disabled { cursor: not-allowed; }
 button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible, .button:focus-within {
-  outline: 3px solid var(--focus, #C7FF2E);
+  outline: 3px solid var(--focus, #86C98E);
   outline-offset: 3px;
 }
 
 .app {
   --palette-slate-light: #C9D0D6;
   --palette-slate: #6F7780;
-  --palette-lime: #C7FF2E;
+  --palette-green: #86C98E;
   --palette-black: #0A0A0A;
   --palette-paper: #F7F7F1;
   --bg: var(--palette-black);
@@ -32,7 +32,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
   --text: var(--palette-paper);
   --muted: #B8BEC2;
   --accent: var(--palette-slate-light);
-  --accent-bright: var(--palette-lime);
+  --accent-bright: var(--palette-green);
   --accent-strong: var(--palette-paper);
   --accent-ink: var(--palette-black);
   --accent-wash: #C9D0D60D;
@@ -41,10 +41,10 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
   --tag: var(--palette-slate-light);
   --tag-wash: #C9D0D60D;
   --danger: #D9A6A6;
-  --focus: var(--palette-lime);
+  --focus: var(--palette-green);
   --score-low: var(--palette-slate);
-  --score-mid: var(--palette-slate-light);
-  --score-high: var(--palette-lime);
+  --score-mid: #5D9567;
+  --score-high: var(--palette-green);
   --primary-bg: var(--palette-slate-light);
   --primary-text: var(--palette-black);
   --primary-hover: var(--palette-paper);
@@ -68,7 +68,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
   --text: #292C29;
   --muted: #646A65;
   --accent: #66784B;
-  --accent-bright: #7D8D4C;
+  --accent-bright: #4F7C56;
   --accent-strong: #4D6041;
   --accent-ink: #FAFAF6;
   --accent-wash: #71824B12;
@@ -77,10 +77,10 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
   --tag: #687360;
   --tag-wash: #73816A10;
   --danger: #914E53;
-  --focus: #71824B;
+  --focus: #4F7C56;
   --score-low: #7B8179;
-  --score-mid: #747F67;
-  --score-high: #6F8244;
+  --score-mid: #7CA583;
+  --score-high: #4F7C56;
   --primary-bg: #E1E6DA;
   --primary-text: #38472F;
   --primary-hover: #D7DFCE;
@@ -676,7 +676,6 @@ legend { margin-bottom: 10px; font-size: 13px; }
 .activity-square.is-today { border-color: var(--text); }
 .activity-square.empty, .activity-legend i.empty { padding: 0; background: transparent; }
 .activity-square.red, .activity-legend i.red { border-color: var(--score-low); background: var(--score-low); }
-.activity-square.yellow, .activity-legend i.yellow { border-color: var(--score-mid); background: var(--score-mid); }
 .activity-square.green, .activity-legend i.green { border-color: var(--score-high); background: var(--score-high); }
 .activity-legend { display: flex; flex-wrap: wrap; gap: 8px 13px; margin-top: 10px; }
 .activity-legend > span { display: flex; align-items: center; gap: 6px; color: var(--muted); font-size: 10px; }
@@ -1013,6 +1012,8 @@ legend { margin-bottom: 10px; font-size: 13px; }
 .task-actions{width:auto;max-width:none;flex-wrap:nowrap;justify-content:flex-end}
 .task-actions .task-icon-button{display:grid;min-width:44px;min-height:44px;flex:0 0 44px;place-items:center;padding:0;font-size:16px;touch-action:manipulation}
 .task-icon-button svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.task-card .task[draggable="true"]{cursor:grab;user-select:none;-webkit-user-select:none}
+.task-card .task[draggable="true"]:active{cursor:grabbing}
 .task-drag-handle{color:var(--muted);cursor:grab;touch-action:none!important}
 .task-drag-handle:active{cursor:grabbing}
 .task-card .task.is-dragging{opacity:.5;transform:scale(.99)}
@@ -1062,3 +1063,7 @@ legend { margin-bottom: 10px; font-size: 13px; }
 @keyframes page-ambient{from{opacity:.55;transform:translate3d(-1%,0,0) scale(1)}to{opacity:.9;transform:translate3d(1%,1%,0) scale(1.03)}}
 @media(max-width:760px){.app:not(.auth-page)>aside{z-index:5}}
 @media(prefers-reduced-motion:reduce){.app:not(.auth-page)::before{animation:none}}
+.brand,.auth-card .brand{display:block;width:200px;height:50px;flex:none;background:url('/brand-logo.svg') left center/contain no-repeat;color:transparent;font-size:0;letter-spacing:0;line-height:0}
+.brand-icon,.brand-dot{display:none}
+.auth-card .brand{width:100%;max-width:360px;height:90px;margin:0 0 22px}
+.app.light aside .brand{background-image:url('/brand-logo-light.svg')}

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 180">
+  <circle cx="88" cy="90" r="57" fill="none" stroke="#20362b" stroke-width="12"/>
+  <circle cx="88" cy="90" r="57" fill="none" stroke="#269b62" stroke-width="12" stroke-linecap="round" stroke-dasharray="42 9" transform="rotate(-90 88 90)"/>
+  <path d="M43 63a57 57 0 0 0 0 54" fill="none" stroke="#d99d2f" stroke-width="12" stroke-linecap="round"/>
+  <path d="m62 91 18 18 39-43" fill="none" stroke="#269b62" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="174" y="106" fill="#20362b" font-family="Arial, Helvetica, sans-serif" font-size="70" font-weight="700" letter-spacing="-3">minha</text>
+  <text x="372" y="106" fill="#269b62" font-family="Arial, Helvetica, sans-serif" font-size="70" font-weight="700" letter-spacing="-3">rotina</text>
+  <text x="178" y="145" fill="#607367" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="600" letter-spacing="3">um dia de cada vez</text>
+</svg>
