@@ -36,7 +36,29 @@ Aplicativo web pessoal para acompanhar a rotina do dia a dia: marque as tarefas 
 
 ## Capturas de tela
 
-_Em breve._
+### Hoje
+
+<p align="center">
+  <img src="docs/screenshots/hoje.png" alt="Tela Hoje com o painel de rotina e contribuições do GitHub" width="900">
+</p>
+
+### Semana
+
+<p align="center">
+  <img src="docs/screenshots/semana.png" alt="Visão semanal com tarefas e progresso de cada dia" width="900">
+</p>
+
+### Mês
+
+<p align="center">
+  <img src="docs/screenshots/mes.png" alt="Calendário mensal com progresso e etiquetas por dia" width="900">
+</p>
+
+### Visão geral
+
+<p align="center">
+  <img src="docs/screenshots/visao-geral.png" alt="Resumo do progresso em cada mês do ano" width="900">
+</p>
 
 ## Próximos passos
 
