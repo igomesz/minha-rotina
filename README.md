@@ -6,11 +6,12 @@ Aplicativo web pessoal para acompanhar a rotina do dia a dia: marque as tarefas 
 
 ## O que ele faz
 
-- **Hoje:** lista do dia com horários de início e término, estimativa do intervalo de descanso e uma frase motivacional diária.
+- **Hoje:** lista do dia com horários de início e término, estimativa do intervalo de descanso e uma frase motivacional diária que você pode alternar.
 - **Semana:** como foi cada dia e o resultado da semana.
 - **Mês:** o desempenho do mês, com as semanas, os dias e etiquetas coloridas com horários opcionais por data.
 - **Visão geral:** todos os meses lado a lado, para ver qual foi melhor e qual foi pior.
 - **Tarefas:** criar e gerenciar as tarefas da rotina.
+- **Pomodoro:** ciclos de foco e pausas com durações ajustáveis, associação opcional a uma tarefa e controles sincronizados entre a aba Hoje e a aba Pomodoro.
 - **Checklist de hoje:** definir horários, reordenar tarefas e editá-las diretamente no dia. Edições e exclusões valem imediatamente, preservando os dias anteriores.
 - **Datas importantes:** adicionar, editar e remover várias etiquetas por dia, com horário opcional e sincronização na nuvem.
 - **Conta própria:** login por e-mail e senha, com os dados na nuvem. O que é marcado no celular aparece no computador.

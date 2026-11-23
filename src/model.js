@@ -1,6 +1,8 @@
 import {validGithubUsername} from './github-username.js';
 export const KEY = 'minha-rotina-v1';
 export const LABEL_COLORS = ['green','lime','blue','violet','rose','amber'];
+export const POMODORO_MODES = ['focus','shortBreak','longBreak'];
+export const defaultPomodoro=()=>({durations:{focus:25,shortBreak:5,longBreak:15},mode:'focus',taskId:'',session:null});
 const QUOTES = [
  'Pequenos passos também levam longe.',
  'Consistência é continuar, mesmo em ritmo leve.',
@@ -32,14 +34,27 @@ export function estimateSleepMinutes(tasks,nextTasks) {
  if(lastEnd===undefined||firstStart===undefined)return null;
  return 24*60+firstStart-lastEnd;
 }
-export function dailyQuote(day) {
+export function dailyQuote(day,offset=0) {
  const dayNumber=Math.floor(Date.parse(`${day}T00:00:00Z`)/86400000);
- return QUOTES[((dayNumber%QUOTES.length)+QUOTES.length)%QUOTES.length];
+ const index=((dayNumber+offset)%QUOTES.length+QUOTES.length)%QUOTES.length;
+ return QUOTES[index];
 }
 export function score(state,day) { const list=scheduled(state,day); return list.length?100*list.filter(t=>t.done).length/list.length:null; }
 export function average(state,list,cutoff=today()) { const values=list.filter(d=>d<=cutoff).map(d=>score(state,d)).filter(v=>v!==null); return values.length?values.reduce((a,b)=>a+b,0)/values.length:null; }
 export function revise(task,name,weekdays,day=today(),description=task.versions.at(-1).description||'',time=task.versions.at(-1).time||'',effectiveFrom=day,endTime=task.versions.at(-1).endTime||'') { return {...task,versions:[...task.versions.filter(v=>v.from<effectiveFrom),{from:effectiveFrom,name,description,days:weekdays,time:time||'',endTime:endTime||''}]}; }
-export const empty=()=>({version:1,tasks:[],done:{},labels:{},order:{}});
+export const empty=()=>({version:1,tasks:[],done:{},labels:{},order:{},pomodoro:defaultPomodoro()});
+function validatePomodoro(pomodoro,taskIds){
+ const modes=POMODORO_MODES;
+ const validTask=id=>id===''||taskIds.has(id);
+ if(!pomodoro||typeof pomodoro!=='object'||Array.isArray(pomodoro)||!modes.includes(pomodoro.mode)||!pomodoro.durations||typeof pomodoro.durations!=='object'||Array.isArray(pomodoro.durations)||!['focus','shortBreak','longBreak'].every(mode=>Number.isInteger(pomodoro.durations[mode])&&pomodoro.durations[mode]>=1&&pomodoro.durations[mode]<=180)||typeof pomodoro.taskId!=='string'||!validTask(pomodoro.taskId))throw Error('Configuração do Pomodoro inválida no backup.');
+ const session=pomodoro.session;
+ if(session===null)return;
+ if(!session||typeof session!=='object'||Array.isArray(session)||typeof session.id!=='string'||!session.id||session.id.length>100||!modes.includes(session.mode)||session.mode!==pomodoro.mode||!['running','paused','finished','stopped'].includes(session.status)||typeof session.taskId!=='string'||!validTask(session.taskId)||!Number.isInteger(session.durationSeconds)||session.durationSeconds<60||session.durationSeconds>10800)throw Error('Sessão do Pomodoro inválida no backup.');
+ if(session.status==='running'&&(!Number.isFinite(session.endsAt)||session.endsAt<0||session.remainingSeconds!==null))throw Error('Temporizador do Pomodoro inválido no backup.');
+ if(session.status==='paused'&&(!Number.isInteger(session.remainingSeconds)||session.remainingSeconds<1||session.remainingSeconds>session.durationSeconds||session.endsAt!==null))throw Error('Pausa do Pomodoro inválida no backup.');
+ if(session.status==='finished'&&(session.remainingSeconds!==0||session.endsAt!==null))throw Error('Ciclo do Pomodoro inválido no backup.');
+ if(session.status==='stopped'&&(session.remainingSeconds!==session.durationSeconds||session.endsAt!==null))throw Error('Temporizador parado do Pomodoro inválido no backup.');
+}
 export function validate(x) {
  const validDate=s=>typeof s==='string' && /^\d{4}-\d{2}-\d{2}$/.test(s) && !isNaN(date(s)) && iso(date(s))===s;
  const validTime=s=>typeof s==='string' && (s===''||/^(?:[01]\d|2[0-3]):[0-5]\d$/.test(s));
@@ -59,6 +74,7 @@ export function validate(x) {
  for(const task of x.tasks)for(const version of task.versions){if(version.endTime!==undefined&&!validTime(version.endTime))throw Error('Horário final inválido no backup.');if(version.time&&version.endTime&&version.endTime<=version.time)throw Error('O horário final deve ser depois do horário inicial.');}
  if(x.labels!==undefined)for(const labels of Object.values(x.labels))if(Array.isArray(labels))for(const label of labels)if(label.color!==undefined&&!LABEL_COLORS.includes(label.color))throw Error('Cor de etiqueta inválida no backup.');
  if(x.order!==undefined){if(!x.order||typeof x.order!=='object'||Array.isArray(x.order))throw Error('Ordem das tarefas inválida no backup.');for(const [d,order] of Object.entries(x.order)){if(!validDate(d)||!Array.isArray(order)||order.length>10000||new Set(order).size!==order.length||order.some(id=>typeof id!=='string'||!ids.has(id)))throw Error('Ordem das tarefas inválida no backup.');}}
+ if(x.pomodoro!==undefined)validatePomodoro(x.pomodoro,ids);
  if(x.githubUsername!==undefined&&x.githubUsername!==''&&!validGithubUsername(x.githubUsername))throw Error('Usuário do GitHub inválido no backup.');
  return x;
 }

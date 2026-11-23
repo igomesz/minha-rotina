@@ -952,3 +952,113 @@ legend { margin-bottom: 10px; font-size: 13px; }
 @keyframes task-glow{from{opacity:.55;transform:translateX(-1%)}to{opacity:1;transform:translateX(1%)}}
 @media(max-width:760px){.today-grid .task-card{min-height:320px;padding:25px 18px;border-color:color-mix(in srgb,var(--success) 48%,var(--border));box-shadow:0 0 0 1px color-mix(in srgb,var(--success) 10%,transparent),0 12px 32px color-mix(in srgb,var(--success) 9%,transparent)}.task-card .section-title{align-items:flex-start}.task-card .task-add{min-height:46px;padding:10px 13px}.task-highlights{align-items:flex-start;flex-direction:column;margin:-7px 0 20px;gap:9px}.notification-controls{align-items:flex-start;flex-direction:column;gap:6px}.notification-controls .hint{max-width:100%}.task-time-inputs{gap:9px}}
 @media(prefers-reduced-motion:reduce){.today-grid .task-card::before{animation:none}}
+.home-heading{align-items:stretch;gap:18px}
+.home-heading .daily-quote-card{position:relative;isolation:isolate;display:flex;min-width:0;height:auto;min-height:309px;flex:1;align-self:stretch;flex-direction:column;justify-content:space-between;overflow:hidden;padding:clamp(22px,3vw,38px);border:1px solid var(--border);border-left:3px solid var(--success);border-radius:11px;background:linear-gradient(145deg,color-mix(in srgb,var(--success) 6%,var(--surface)),var(--surface) 66%)}
+.daily-quote-card::before{position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse at 0 0,color-mix(in srgb,var(--success) 11%,transparent),transparent 58%);content:""}
+.daily-quote-card>*{position:relative;z-index:1}
+.heading .daily-quote-card .eyebrow{display:block;margin:0;color:var(--success);font-size:11px;letter-spacing:1.5px}
+.home-heading>div:first-child{min-width:0}
+.home-heading h1{display:flex;min-height:0;flex:1;align-items:center;margin:14px 0;font-size:clamp(30px,3.2vw,42px);line-height:1.1}
+.home-heading .pomodoro-card{width:460px;max-width:100%;flex:0 0 460px;padding:16px}
+.daily-quote-actions{display:flex;justify-content:flex-end;gap:8px}
+.daily-quote-actions button{display:grid;width:42px;min-width:42px;height:42px;min-height:42px;place-items:center;padding:0;font-size:25px;line-height:1}
+.pomodoro-compact .pomodoro-modes{margin:10px 0 8px}
+.pomodoro-compact .pomodoro-modes button{min-height:36px}
+.pomodoro-compact .pomodoro-ring{width:120px;height:120px;margin:4px auto 7px;padding:6px}
+.pomodoro-compact .pomodoro-ring strong{font-size:30px}
+.pomodoro-compact .pomodoro-controls{margin-top:10px}
+.pomodoro-compact .pomodoro-controls>*{min-height:40px}
+.pomodoro-card{width:100%;min-width:0;border-color:color-mix(in srgb,var(--success) 34%,var(--border));background:linear-gradient(145deg,color-mix(in srgb,var(--success) 7%,var(--surface)),var(--surface) 60%);padding:21px}
+.pomodoro-heading{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.pomodoro-heading h2{font-size:20px}
+.pomodoro-description{margin:6px 0 0;color:var(--muted);font-size:13px;line-height:1.5}
+.pomodoro-status{padding:5px 8px;border:1px solid var(--border);border-radius:999px;color:var(--muted);background:var(--bg);font-size:11px;white-space:nowrap}
+.pomodoro-status.status-running{border-color:color-mix(in srgb,var(--success) 50%,var(--border));color:var(--success);background:var(--success-wash)}
+.pomodoro-status.status-finished{border-color:color-mix(in srgb,var(--success) 55%,var(--border));color:var(--success);background:var(--success-wash)}
+.pomodoro-modes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;margin:15px 0 10px}
+.pomodoro-modes button{min-width:0;min-height:40px;padding:7px 5px;border:1px solid transparent;border-radius:7px;color:var(--muted);background:transparent;font-size:12px;font-weight:600;line-height:1.2}
+.pomodoro-modes button.selected{border-color:color-mix(in srgb,var(--success) 36%,var(--border));color:var(--success);background:var(--success-wash)}
+.pomodoro-modes button:disabled{opacity:.55}
+.pomodoro-center{text-align:center}
+.pomodoro-ring{width:164px;height:164px;margin:8px auto 10px;padding:8px;border-radius:50%;background:conic-gradient(var(--success) var(--pomodoro-progress),var(--border) 0)}
+.pomodoro-ring>div{display:flex;width:100%;height:100%;align-items:center;justify-content:center;flex-direction:column;border:1px solid var(--border);border-radius:50%;background:var(--surface)}
+.pomodoro-ring strong{font-family:"Segoe UI Variable","Segoe UI",sans-serif;font-size:38px;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:-1.5px}
+.pomodoro-ring span{margin-top:3px;color:var(--muted);font-size:12px}
+.pomodoro-task{min-width:0;margin:0;color:var(--muted);font-size:12px;line-height:1.4;overflow-wrap:anywhere}
+.pomodoro-task strong{color:var(--text)}
+.pomodoro-controls{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+.pomodoro-controls>*{min-height:42px;flex:1 1 auto;padding:8px 11px;font-size:13px}
+.pomodoro-delete{color:var(--danger)}
+.pomodoro-complete{margin:12px 0 0;padding:9px 10px;border:1px solid color-mix(in srgb,var(--success) 35%,var(--border));border-radius:8px;color:var(--success);background:var(--success-wash);font-size:12px;line-height:1.45}
+.pomodoro-card.is-finished{animation:pomodoro-finish 1.8s ease-in-out infinite alternate}
+.pomodoro-settings{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;margin-top:24px;padding-top:20px;border-top:1px solid var(--border)}
+.pomodoro-settings .field{font-size:13px;font-weight:600}
+.pomodoro-settings select,.pomodoro-settings input{display:block;width:100%;min-height:46px;margin:8px 0 0;border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--text);background:var(--bg);font-size:16px}
+.pomodoro-durations{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.pomodoro-settings fieldset{margin:0}
+.pomodoro-settings legend{margin-bottom:10px;color:var(--muted);font-size:12px}
+.pomodoro-settings .pomodoro-save{min-height:42px}
+.pomodoro-page{width:min(100%,720px);margin:0 auto}
+.pomodoro-page .pomodoro-card{padding:26px}
+.pomodoro-page .pomodoro-modes{margin:22px auto 13px;max-width:510px}
+.pomodoro-page .pomodoro-modes button{min-height:46px;font-size:14px}
+.pomodoro-page .pomodoro-ring{width:230px;height:230px;margin:18px auto 14px;padding:10px}
+.pomodoro-page .pomodoro-ring strong{font-size:54px}
+.pomodoro-page .pomodoro-ring span{font-size:14px}
+.pomodoro-page .pomodoro-task{font-size:14px}
+.pomodoro-page .pomodoro-controls{max-width:510px;margin:20px auto 0}
+.pomodoro-page .pomodoro-controls>*{min-height:48px;font-size:14px}
+.pomodoro-page .pomodoro-settings{grid-template-columns:1fr 1.4fr}
+.task-card .task-main{min-width:0;min-height:48px;align-items:center}
+.task-actions{width:auto;max-width:none;flex-wrap:nowrap;justify-content:flex-end}
+.task-actions .task-icon-button{display:grid;min-width:44px;min-height:44px;flex:0 0 44px;place-items:center;padding:0;font-size:16px;touch-action:manipulation}
+.task-icon-button svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.task-drag-handle{color:var(--muted);cursor:grab;touch-action:none!important}
+.task-drag-handle:active{cursor:grabbing}
+.task-card .task.is-dragging{opacity:.5;transform:scale(.99)}
+.task-card .task.drag-over{border-color:var(--success);box-shadow:0 0 0 1px color-mix(in srgb,var(--success) 28%,transparent)}
+.task-reorder-hint{margin:0 0 8px;color:var(--muted);font-size:12px}
+@keyframes pomodoro-finish{from{border-color:color-mix(in srgb,var(--success) 35%,var(--border))}to{border-color:color-mix(in srgb,var(--success) 78%,var(--border))}}
+@media(max-width:760px){
+ nav{grid-template-columns:repeat(6,minmax(0,1fr))}
+ nav button{font-size:clamp(8px,2.4vw,10px)}
+ .home-heading{align-items:stretch;gap:15px}
+ .home-heading>div:first-child{align-items:flex-start}
+ .home-heading h1{min-height:100px;margin:12px 0;font-size:clamp(25px,7vw,34px)}
+ .home-heading .daily-quote-card{height:auto;min-height:180px;align-self:stretch;padding:20px}
+ .home-heading .pomodoro-card{width:100%;max-width:none;flex:0 0 auto;padding:16px}
+ .pomodoro-compact .pomodoro-center{display:flex;align-items:center;gap:14px;text-align:left}
+ .pomodoro-compact .pomodoro-ring{width:118px;height:118px;flex:0 0 118px;margin:4px 0;padding:6px}
+ .pomodoro-compact .pomodoro-ring strong{font-size:30px}
+ .pomodoro-compact .pomodoro-task{flex:1}
+ .pomodoro-controls>*{min-height:44px}
+ .pomodoro-page .pomodoro-card{padding:19px 15px}
+ .pomodoro-page .pomodoro-ring{width:190px;height:190px}
+ .pomodoro-page .pomodoro-ring strong{font-size:46px}
+ .pomodoro-page .pomodoro-settings{grid-template-columns:1fr}
+ .task-card .task{grid-template-columns:minmax(0,1fr);align-items:center}
+ .task-card .task-main{min-height:48px;gap:11px;padding:5px 0}
+ .task-card .task input{flex:0 0 30px;width:30px;height:30px;margin:0}
+ .task-actions{width:auto;max-width:none;justify-content:flex-end;flex-wrap:nowrap}
+ .task-actions .task-icon-button{min-width:44px;min-height:44px;flex-basis:44px}
+}
+@media(min-width:761px) and (max-width:1100px){
+ .home-heading{align-items:stretch;flex-direction:column}
+ .home-heading .daily-quote-card{height:auto;min-height:210px;align-self:stretch}
+ .home-heading .pomodoro-card{width:100%;flex:0 0 auto}
+}
+@media(max-width:370px){
+ nav button{font-size:8px}
+ .pomodoro-compact .pomodoro-ring{width:104px;height:104px;flex-basis:104px}
+ .pomodoro-compact .pomodoro-ring strong{font-size:27px}
+ .pomodoro-modes button{font-size:10px}
+ .pomodoro-durations{gap:7px}
+}
+@media(prefers-reduced-motion:reduce){.pomodoro-card.is-finished{animation:none}}
+.app:not(.auth-page){position:relative;isolation:isolate;background:radial-gradient(ellipse at 12% 10%,color-mix(in srgb,var(--success) 9%,transparent),transparent 42rem),radial-gradient(ellipse at 95% 62%,color-mix(in srgb,var(--accent) 6%,transparent),transparent 38rem),var(--bg)}
+.app:not(.auth-page)::before{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(55rem 38rem at 12% 8%,color-mix(in srgb,var(--success) 10%,transparent),transparent 75%),radial-gradient(42rem 32rem at 94% 60%,color-mix(in srgb,var(--accent) 7%,transparent),transparent 74%);content:"";animation:page-ambient 26s ease-in-out infinite alternate}
+.app:not(.auth-page)>aside,.app:not(.auth-page)>main{z-index:1}
+.app:not(.auth-page)>aside{background:linear-gradient(180deg,color-mix(in srgb,var(--success) 4%,var(--bg)),var(--bg) 72%)}
+@keyframes page-ambient{from{opacity:.55;transform:translate3d(-1%,0,0) scale(1)}to{opacity:.9;transform:translate3d(1%,1%,0) scale(1.03)}}
+@media(max-width:760px){.app:not(.auth-page)>aside{z-index:5}}
+@media(prefers-reduced-motion:reduce){.app:not(.auth-page)::before{animation:none}}
