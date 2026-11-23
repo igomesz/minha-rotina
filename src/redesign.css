@@ -923,3 +923,32 @@ legend { margin-bottom: 10px; font-size: 13px; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; }
 }
+ h1,h2,h3,.brand{font-family:Impact,"Arial Narrow","Franklin Gothic Condensed",sans-serif;font-weight:400;letter-spacing:.015em}
+.heading h1{line-height:1.08;letter-spacing:.025em}
+.section-title h2,.period h2{letter-spacing:.02em}
+.app{--success:#86C98E;--success-wash:#86C98E16}
+.app.light{--success:#4F7C56;--success-wash:#4F7C5614}
+.today-grid .task-card{position:relative;isolation:isolate;overflow:hidden;border-color:color-mix(in srgb,var(--success) 32%,var(--border));background:var(--surface)}
+.today-grid .task-card::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse at 10% 0,color-mix(in srgb,var(--success) 12%,transparent),transparent 58%);opacity:.85;animation:task-glow 9s ease-in-out infinite alternate}
+.today-grid .task-card>*{position:relative;z-index:1}
+.task-card .task.done{border-color:color-mix(in srgb,var(--success) 52%,var(--border));background:var(--success-wash);opacity:1}
+.task-card .task.done .task-name{color:var(--success);text-decoration:line-through}
+.task-card .task input{accent-color:var(--success)}
+.task-subtitle{margin:5px 0 0;color:var(--muted);font-size:13px;line-height:1.45}
+.task-highlights{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:-10px 0 18px}
+.sleep-badge{display:inline-flex;align-items:center;gap:7px;padding:8px 11px;border:1px solid color-mix(in srgb,var(--success) 42%,var(--border));border-radius:999px;background:var(--success-wash);color:var(--text);font-size:13px}
+.sleep-badge>span,.sleep-badge strong{color:var(--success)}
+.sleep-badge strong{font-size:14px}
+.notification-controls{display:flex;align-items:center;gap:9px;min-width:0}
+.notification-toggle{min-height:38px;padding:7px 11px;border-color:color-mix(in srgb,var(--success) 38%,var(--border));font-size:12px;white-space:nowrap}
+.notification-controls .hint{max-width:330px;margin:0;font-size:11px;line-height:1.4}
+.task-time-fields{padding:0;border:0;margin:0 0 18px}
+.task-time-fields legend{font-size:14px;margin-bottom:7px}
+.task-time-fields>.hint{font-size:12px;margin:0 0 10px}
+.task-time-inputs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.task-time-inputs .field input{margin-bottom:14px}
+.calendar .day>.calendar-label[data-color]{color:var(--label-color);background:color-mix(in srgb,var(--label-color) 12%,var(--bg));border-color:color-mix(in srgb,var(--label-color) 38%,var(--border))}
+.calendar .day>.calendar-label-count[data-color]{color:var(--label-color);background:color-mix(in srgb,var(--label-color) 15%,var(--bg));border:1px solid color-mix(in srgb,var(--label-color) 38%,var(--border));border-radius:999px;padding:3px 6px}
+@keyframes task-glow{from{opacity:.55;transform:translateX(-1%)}to{opacity:1;transform:translateX(1%)}}
+@media(max-width:760px){.today-grid .task-card{min-height:320px;padding:25px 18px;border-color:color-mix(in srgb,var(--success) 48%,var(--border));box-shadow:0 0 0 1px color-mix(in srgb,var(--success) 10%,transparent),0 12px 32px color-mix(in srgb,var(--success) 9%,transparent)}.task-card .section-title{align-items:flex-start}.task-card .task-add{min-height:46px;padding:10px 13px}.task-highlights{align-items:flex-start;flex-direction:column;margin:-7px 0 20px;gap:9px}.notification-controls{align-items:flex-start;flex-direction:column;gap:6px}.notification-controls .hint{max-width:100%}.task-time-inputs{gap:9px}}
+@media(prefers-reduced-motion:reduce){.today-grid .task-card::before{animation:none}}

@@ -29,3 +29,28 @@
 .label-manager .hint{margin-bottom:20px}
 @media(max-width:760px){.period h2.month-selected{padding:8px 10px;font-size:18px}.period h2.month-selected::before{font-size:8px;letter-spacing:1px}.label-toolbar{align-items:flex-start;flex-direction:column}.date-highlight{padding:14px 12px;gap:10px;flex-wrap:wrap}.date-highlight strong{font-size:16px}.date-highlight .date-label-items{font-size:14px}.date-highlight .quiet{margin-left:31px}.calendar{gap:5px}.calendar-cell .day{padding:5px 3px;min-height:52px}.calendar-cell{border-radius:8px}.label-shortcut{font-size:11px}.day>.calendar-label{font-size:11px;padding:4px 2px}.label-manager-list li{align-items:flex-start;flex-direction:column}.label-manager-list .row-actions{width:100%}.label-toolbar .primary{width:100%}}
 @media(prefers-reduced-motion:reduce){.date-highlight{animation:none}}
+.calendar-label[data-color],.label-manager-list li[data-color]{--label-color:#78C98D}
+.calendar-label[data-color="lime"],.label-manager-list li[data-color="lime"]{--label-color:#CCED74}
+.calendar-label[data-color="blue"],.label-manager-list li[data-color="blue"]{--label-color:#8AB9EB}
+.calendar-label[data-color="violet"],.label-manager-list li[data-color="violet"]{--label-color:#C0A3EF}
+.calendar-label[data-color="rose"],.label-manager-list li[data-color="rose"]{--label-color:#EA9CA5}
+.calendar-label[data-color="amber"],.label-manager-list li[data-color="amber"]{--label-color:#E8BC78}
+.light .calendar-label[data-color],.light .label-manager-list li[data-color]{--label-color:#387848}
+.light .calendar-label[data-color="lime"],.light .label-manager-list li[data-color="lime"]{--label-color:#778829}
+.light .calendar-label[data-color="blue"],.light .label-manager-list li[data-color="blue"]{--label-color:#386D9B}
+.light .calendar-label[data-color="violet"],.light .label-manager-list li[data-color="violet"]{--label-color:#72539D}
+.light .calendar-label[data-color="rose"],.light .label-manager-list li[data-color="rose"]{--label-color:#A54F5D}
+.light .calendar-label[data-color="amber"],.light .label-manager-list li[data-color="amber"]{--label-color:#93621C}
+.calendar-label-count[data-color]{--label-color:#78C98D}
+.calendar-label-count[data-color="lime"]{--label-color:#CCED74}.calendar-label-count[data-color="blue"]{--label-color:#8AB9EB}.calendar-label-count[data-color="violet"]{--label-color:#C0A3EF}.calendar-label-count[data-color="rose"]{--label-color:#EA9CA5}.calendar-label-count[data-color="amber"]{--label-color:#E8BC78}
+.light .calendar-label-count[data-color]{--label-color:#387848}.light .calendar-label-count[data-color="lime"]{--label-color:#778829}.light .calendar-label-count[data-color="blue"]{--label-color:#386D9B}.light .calendar-label-count[data-color="violet"]{--label-color:#72539D}.light .calendar-label-count[data-color="rose"]{--label-color:#A54F5D}.light .calendar-label-count[data-color="amber"]{--label-color:#93621C}
+.label-manager-list li[data-color]{border-left:3px solid var(--label-color)}
+.label-manager-copy time{color:var(--label-color)}
+.label-color-picker{margin:0 0 18px}
+.label-color-picker>div{display:flex;align-items:center;gap:10px}
+.label-color-picker .hint{display:block;margin:9px 0 0;font-size:12px}
+.label-color-option{width:32px;height:32px;min-width:32px;border:2px solid var(--border);border-radius:50%;background:#78C98D}
+.label-color-option[aria-pressed="true"]{outline:2px solid var(--text);outline-offset:3px}
+.label-color-option.lime{background:#CCED74}.label-color-option.blue{background:#8AB9EB}.label-color-option.violet{background:#C0A3EF}.label-color-option.rose{background:#EA9CA5}.label-color-option.amber{background:#E8BC78}
+.light .label-color-option.green{background:#387848}.light .label-color-option.lime{background:#778829}.light .label-color-option.blue{background:#386D9B}.light .label-color-option.violet{background:#72539D}.light .label-color-option.rose{background:#A54F5D}.light .label-color-option.amber{background:#93621C}
+@media(max-width:760px){.task-time-fields .task-time-inputs{grid-template-columns:repeat(2,minmax(0,1fr))}}

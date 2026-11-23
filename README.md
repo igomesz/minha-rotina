@@ -6,15 +6,15 @@ Aplicativo web pessoal para acompanhar a rotina do dia a dia: marque as tarefas 
 
 ## O que ele faz
 
-- **Hoje:** lista das tarefas do dia para marcar como feitas.
+- **Hoje:** lista do dia com horários de início e término, estimativa do intervalo de descanso e uma frase motivacional diária.
 - **Semana:** como foi cada dia e o resultado da semana.
-- **Mês:** o desempenho do mês, com as semanas, os dias e várias etiquetas com horários opcionais por data.
+- **Mês:** o desempenho do mês, com as semanas, os dias e etiquetas coloridas com horários opcionais por data.
 - **Visão geral:** todos os meses lado a lado, para ver qual foi melhor e qual foi pior.
 - **Tarefas:** criar e gerenciar as tarefas da rotina.
-- **Checklist de hoje:** definir horários opcionais, reordenar tarefas e editá-las diretamente no dia. Edições e exclusões valem imediatamente, preservando os dias anteriores.
+- **Checklist de hoje:** definir horários, reordenar tarefas e editá-las diretamente no dia. Edições e exclusões valem imediatamente, preservando os dias anteriores.
 - **Datas importantes:** adicionar, editar e remover várias etiquetas por dia, com horário opcional e sincronização na nuvem.
 - **Conta própria:** login por e-mail e senha, com os dados na nuvem. O que é marcado no celular aparece no computador.
-- **Instalável (PWA):** pode ser adicionado à tela inicial do celular e abre como um aplicativo.
+- **Instalável (PWA):** pode ser adicionado à tela inicial do celular e abre como um aplicativo. Com permissão, envia lembretes 15 minutos antes enquanto o app estiver aberto.
 - **Gráfico de contribuições do GitHub (opcional):** mostra o gráfico público de quem informar o nome de usuário.
 
 ## Tecnologias
@@ -63,11 +63,6 @@ Aplicativo web pessoal para acompanhar a rotina do dia a dia: marque as tarefas 
 <p align="center">
   <img src="docs/screenshots/visao-geral.png" alt="Resumo do progresso em cada mês do ano" width="900">
 </p>
-
-## Próximos passos
-
-- Redesenho completo da interface (front-end), com um visual mais autoral.
-- Pequenos ajustes de funcionalidades.
 
 ## Autor
 
