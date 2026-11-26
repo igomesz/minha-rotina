@@ -1007,10 +1007,150 @@ legend { margin-bottom: 10px; font-size: 13px; }
 .pomodoro-page .pomodoro-task{font-size:14px}
 .pomodoro-page .pomodoro-controls{max-width:510px;margin:20px auto 0}
 .pomodoro-page .pomodoro-controls>*{min-height:48px;font-size:14px}
-.pomodoro-page .pomodoro-settings{grid-template-columns:1fr 1.4fr}
+.pomodoro-page .pomodoro-settings{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}
+.pomodoro-page .pomodoro-settings form{display:grid;grid-column:1/-1;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:16px}
+.pomodoro-page .pomodoro-settings form fieldset{min-width:0}
+.pomodoro-page .pomodoro-settings .pomodoro-save{white-space:nowrap}
 .task-card .task-main{min-width:0;min-height:48px;align-items:center}
 .task-actions{width:auto;max-width:none;flex-wrap:nowrap;justify-content:flex-end}
 .task-actions .task-icon-button{display:grid;min-width:44px;min-height:44px;flex:0 0 44px;place-items:center;padding:0;font-size:16px;touch-action:manipulation}
+
+:root{font-family:"DM Sans","Segoe UI Variable","Segoe UI",system-ui,sans-serif;font-synthesis:none}
+.app{
+  color-scheme:dark;
+  --space-1:4px;
+  --space-2:8px;
+  --space-3:12px;
+  --space-4:16px;
+  --space-5:24px;
+  --space-6:32px;
+  --font-size-xs:12px;
+  --font-size-sm:14px;
+  --font-size-base:16px;
+  --font-size-lg:20px;
+  --font-size-xl:28px;
+  --font-size-2xl:36px;
+  --card-radius:16px;
+  --palette-slate-light:#D7E8FA;
+  --palette-slate:#76542C;
+  --palette-green:#5DF9C0;
+  --palette-black:#14120F;
+  --palette-paper:#D7E8FA;
+  --bg:#14120F;
+  --surface:#1B1712;
+  --surface-raised:#24201B;
+  --border:#35312B;
+  --border-strong:#4A453D;
+  --text:#D7E8FA;
+  --muted:#A8B3BF;
+  --accent:#5DF9C0;
+  --accent-bright:#5DF9C0;
+  --accent-strong:#5DF9C0;
+  --accent-ink:#111510;
+  --accent-wash:#5DF9C016;
+  --active-bg:#242720;
+  --active-text:#D7E8FA;
+  --tag:#8DAFFF;
+  --tag-wash:#3B1EFF18;
+  --danger:#F09A9A;
+  --focus:#3B1EFF;
+  --score-low:#76542C;
+  --score-mid:#F2C66D;
+  --score-high:#5DF9C0;
+  --primary-bg:#5DF9C0;
+  --primary-text:#111510;
+  --primary-hover:#8EFBD5;
+  --success:#5DF9C0;
+  --success-wash:#5DF9C018;
+  --gold:#F2C66D;
+  --ocean-blue:#3B1EFF;
+  --card-shadow:0 12px 32px #0000002E;
+  background:radial-gradient(ellipse at 82% 0,#D7E8FA08 0,transparent 38rem),var(--bg);
+}
+.app.light{
+  color-scheme:light;
+  --bg:#EAF3FC;
+  --surface:#F8FBFF;
+  --surface-raised:#EEF5FC;
+  --border:#D3DFEA;
+  --border-strong:#B7C7D6;
+  --text:#1D2B39;
+  --muted:#566777;
+  --accent:#08785B;
+  --accent-bright:#08785B;
+  --accent-strong:#08785B;
+  --accent-ink:#F8FBFF;
+  --accent-wash:#5DF9C028;
+  --active-bg:#DCEAE7;
+  --active-text:#153C32;
+  --tag:#3730A3;
+  --tag-wash:#3B1EFF10;
+  --danger:#9D343A;
+  --focus:#3B1EFF;
+  --score-low:#76542C;
+  --score-mid:#8A5E00;
+  --score-high:#08785B;
+  --primary-bg:#08785B;
+  --primary-text:#FFFFFF;
+  --primary-hover:#086B53;
+  --success:#08785B;
+  --success-wash:#08785B14;
+  --gold:#805800;
+  --card-shadow:0 8px 24px #26384A0D;
+  background:radial-gradient(ellipse at 82% 0,#FFFFFFB8 0,transparent 38rem),var(--bg);
+}
+body{font-family:"DM Sans","Segoe UI Variable","Segoe UI",system-ui,sans-serif;font-size:var(--font-size-base,16px)}
+h1,h2,h3,.brand{font-family:"Manrope","DM Sans","Segoe UI Variable","Segoe UI",system-ui,sans-serif;font-weight:650;letter-spacing:-.035em}
+h1{font-size:clamp(var(--font-size-xl),3vw,var(--font-size-2xl));line-height:1.16}
+h2{font-size:var(--font-size-lg)}
+.card,.activity-card,.weekly-day,.modal,.stat-strip,.date-highlight{border-radius:var(--card-radius);box-shadow:var(--card-shadow)}
+.card{border-color:color-mix(in srgb,var(--border) 80%,transparent)}
+.primary{background:var(--primary-bg);color:var(--primary-text)}
+.primary:hover{background:var(--primary-hover)}
+.day-options .chosen{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.today-grid .task-card{min-height:0;border-color:var(--border);box-shadow:var(--card-shadow)}
+.today-grid .task-card::before{opacity:.24;animation:none}
+.home-heading .daily-quote-card{border-radius:16px}
+.daily-quote-card::before{opacity:.4}
+.stat-strip strong.achievement,.month-weeks strong.achievement{color:var(--gold)}
+.achievement{color:var(--gold)!important}
+.activity-square.gold,.activity-legend i.gold{background:var(--gold);border-color:var(--gold)}
+.activity-square.green,.activity-legend i.green{background:var(--success);border-color:var(--success)}
+.activity-square.red,.activity-legend i.red{background:#EE6666;border-color:#EE6666}
+.pomodoro-step-label{margin:0 0 4px;color:var(--gold);font-size:13px;font-weight:700}
+.pomodoro-completions{margin:0 0 7px;color:var(--muted);font-size:11px}
+.pomodoro-compact .pomodoro-step-label{display:none}
+.pomodoro-alerts{display:flex;align-items:center;gap:var(--space-3)}
+.pomodoro-alerts .hint{max-width:360px;margin:0;font-size:var(--font-size-xs)}
+.pomodoro-alerts .quiet{white-space:nowrap}
+.header-actions{display:flex;align-items:center;gap:var(--space-2)}
+.tab-transition,.launch-transition{position:fixed;inset:0;z-index:20;display:grid;place-items:center;pointer-events:none}
+.tab-transition{background:color-mix(in srgb,var(--bg) 62%,transparent);backdrop-filter:blur(5px);animation:tab-reveal .3s ease both}
+.tab-transition span{color:var(--text);font:650 clamp(38px,7vw,74px)/1 "Manrope","DM Sans",sans-serif;letter-spacing:.04em;text-align:center}
+.launch-transition{z-index:30;background:var(--bg);color:var(--text);font:600 clamp(56px,15vw,180px)/1 "Manrope","DM Sans",sans-serif;letter-spacing:.1em;white-space:nowrap;animation:launch-reveal .65s cubic-bezier(.2,.7,.3,1) both}
+@keyframes tab-reveal{0%{opacity:0;transform:scale(.96)}18%{opacity:1;transform:scale(1)}78%{opacity:1}100%{opacity:0}}
+@keyframes launch-reveal{0%{opacity:0;filter:blur(8px);transform:scale(1.05)}22%{opacity:1;filter:blur(0);transform:scale(1)}74%{opacity:1}100%{opacity:0;filter:blur(5px);transform:scale(.98)}}
+@media(max-width:760px){
+  .app:not(.auth-page) nav{grid-template-columns:repeat(6,minmax(0,1fr));gap:2px}
+  .app:not(.auth-page) nav button{gap:4px;padding:5px 1px;font-size:9px;line-height:1.1}
+  .app:not(.auth-page) nav button span{width:auto;font-size:18px}
+  .header-actions{gap:5px}
+  .header-actions .quiet{padding:7px 8px;font-size:10px}
+  .pomodoro-alerts{align-items:flex-start;flex-direction:column}
+  .pomodoro-compact .pomodoro-heading{gap:6px}
+  .pomodoro-compact .pomodoro-heading h2{font-size:17px}
+  .tab-transition span{font-size:clamp(45px,14vw,100px);letter-spacing:.06em;white-space:nowrap}
+  .launch-transition{font-size:clamp(56px,16vw,120px);letter-spacing:.08em}
+}
+@media(max-width:370px){
+  .app:not(.auth-page) nav button{font-size:8px}
+  .app:not(.auth-page) nav button span{font-size:16px}
+  .header-actions .quiet{padding-inline:6px}
+}
+@media(prefers-reduced-motion:reduce){
+  .launch-transition,.tab-transition{animation:none!important;opacity:0!important}
+  .today-grid .task-card::before{animation:none}
+}
 .task-icon-button svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .task-card .task[draggable="true"]{cursor:grab;user-select:none;-webkit-user-select:none}
 .task-card .task[draggable="true"]:active{cursor:grabbing}
@@ -1036,7 +1176,9 @@ legend { margin-bottom: 10px; font-size: 13px; }
  .pomodoro-page .pomodoro-card{padding:19px 15px}
  .pomodoro-page .pomodoro-ring{width:190px;height:190px}
  .pomodoro-page .pomodoro-ring strong{font-size:46px}
- .pomodoro-page .pomodoro-settings{grid-template-columns:1fr}
+ .pomodoro-page .pomodoro-settings{grid-template-columns:minmax(0,1fr)}
+ .pomodoro-page .pomodoro-settings form{grid-column:1;grid-template-columns:minmax(0,1fr)}
+ .pomodoro-page .pomodoro-settings .pomodoro-save{justify-self:start}
  .task-card .task{grid-template-columns:minmax(0,1fr);align-items:center}
  .task-card .task-main{min-height:48px;gap:11px;padding:5px 0}
  .task-card .task input{flex:0 0 30px;width:30px;height:30px;margin:0}
@@ -1067,3 +1209,234 @@ legend { margin-bottom: 10px; font-size: 13px; }
 .brand-icon,.brand-dot{display:none}
 .auth-card .brand{width:100%;max-width:360px;height:90px;margin:0 0 22px}
 .app.light aside .brand{background-image:url('/brand-logo-light.svg')}
+
+.app{
+  --palette-slate-light:#D7E8FA;
+  --palette-slate:#76542C;
+  --palette-green:#5DF9C0;
+  --palette-black:#191A24;
+  --palette-paper:#D7E8FA;
+  --bg:#191A24;
+  --surface:#242631;
+  --surface-raised:#2D303C;
+  --surface-soft:#20222D;
+  --border:#383B49;
+  --border-strong:#505362;
+  --text:#D7E8FA;
+  --muted:#AAB3C3;
+  --accent:#5DF9C0;
+  --accent-bright:#5DF9C0;
+  --accent-strong:#5DF9C0;
+  --accent-ink:#151820;
+  --accent-wash:#5DF9C01C;
+  --active-bg:#5DF9C0;
+  --active-text:#151820;
+  --tag:#AFC0FF;
+  --tag-wash:#3B1EFF20;
+  --danger:#F09A9A;
+  --focus:#3B1EFF;
+  --score-low:#76542C;
+  --score-mid:#F2C66D;
+  --score-high:#5DF9C0;
+  --primary-bg:#5DF9C0;
+  --primary-text:#151820;
+  --primary-hover:#8EFBD5;
+  --success:#5DF9C0;
+  --success-wash:#5DF9C01C;
+  --gold:#F2C66D;
+  --ocean-blue:#3B1EFF;
+  --card-radius:24px;
+  --card-shadow:0 12px 32px #08091055;
+  color-scheme:dark;
+  background:
+    radial-gradient(ellipse at 86% 0,#3B1EFF12 0,transparent 36rem),
+    radial-gradient(ellipse at 0 46%,#5DF9C008 0,transparent 34rem),
+    var(--bg);
+}
+.app.light{
+  --bg:#EAF0F8;
+  --surface:#F8FAFE;
+  --surface-raised:#EEF2F9;
+  --surface-soft:#E2E9F3;
+  --border:#D2DCE9;
+  --border-strong:#B7C4D5;
+  --text:#202739;
+  --muted:#59667B;
+  --accent:#08785B;
+  --accent-bright:#08785B;
+  --accent-strong:#08785B;
+  --accent-ink:#F8FAFE;
+  --accent-wash:#5DF9C034;
+  --active-bg:#08785B;
+  --active-text:#FFFFFF;
+  --tag:#3730A3;
+  --tag-wash:#3B1EFF12;
+  --danger:#9D343A;
+  --focus:#3B1EFF;
+  --score-low:#76542C;
+  --score-mid:#8A5E00;
+  --score-high:#08785B;
+  --primary-bg:#08785B;
+  --primary-text:#FFFFFF;
+  --primary-hover:#086B53;
+  --success:#08785B;
+  --success-wash:#08785B16;
+  --gold:#805800;
+  --card-shadow:0 12px 28px #24314A12;
+  color-scheme:light;
+  background:
+    radial-gradient(ellipse at 86% 0,#3B1EFF0A 0,transparent 36rem),
+    var(--bg);
+}
+body{font-family:"DM Sans","Segoe UI Variable","Segoe UI",system-ui,sans-serif}
+h1,h2,h3,.brand{font-family:"Manrope","DM Sans","Segoe UI Variable","Segoe UI",system-ui,sans-serif;font-weight:500;letter-spacing:-.025em}
+h1{font-size:clamp(28px,3vw,40px);line-height:1.15}
+h2{font-size:20px}
+.app:not(.auth-page){background:
+  radial-gradient(ellipse at 86% 0,#3B1EFF12 0,transparent 36rem),
+  radial-gradient(ellipse at 0 46%,#5DF9C008 0,transparent 34rem),
+  var(--bg)}
+.app:not(.auth-page)::before{background:radial-gradient(48rem 34rem at 12% 8%,#5DF9C00B,transparent 76%),radial-gradient(42rem 32rem at 94% 60%,#3B1EFF0A,transparent 74%);animation-duration:34s}
+.app:not(.auth-page)>aside{background:linear-gradient(180deg,#20222D,var(--bg) 82%);border-color:var(--border)}
+.app:not(.auth-page) nav{gap:7px;margin-top:38px}
+.app:not(.auth-page) nav button{min-height:50px;padding:11px 14px;border-radius:15px;font-weight:500;transition:background .18s ease,color .18s ease,transform .18s ease}
+.app:not(.auth-page) nav button span{font-size:18px}
+.app:not(.auth-page) nav button.active{border-color:transparent;background:var(--active-bg);box-shadow:0 7px 20px #5DF9C020;color:var(--active-text);font-weight:700}
+.app:not(.auth-page) nav button.active span{color:var(--active-text)}
+.app:not(.auth-page) nav button:hover:not(.active){transform:translateX(2px);background:var(--surface-raised);color:var(--text)}
+.app:not(.auth-page) main{padding-top:32px}
+.app:not(.auth-page) main>header{border-color:var(--border);font-size:13px}
+.brand{font-weight:600;letter-spacing:-.035em}
+.quiet,.button{border-color:var(--border-strong);border-radius:14px;background:var(--surface-soft);transition:background .18s ease,border-color .18s ease,transform .18s ease}
+.quiet:hover,.button:hover{border-color:var(--accent);background:var(--surface-raised);transform:translateY(-1px)}
+.primary{border-radius:14px;background:var(--primary-bg);color:var(--primary-text);box-shadow:0 6px 18px #5DF9C01C;transition:background .18s ease,transform .18s ease,box-shadow .18s ease}
+.primary:hover{background:var(--primary-hover);box-shadow:0 8px 22px #5DF9C02B;transform:translateY(-1px)}
+.card,.activity-card,.weekly-day,.modal,.stat-strip,.date-highlight,.pomodoro-card,.daily-quote-card{
+  border:1px solid var(--border);
+  border-radius:var(--card-radius);
+  background:var(--surface);
+  box-shadow:var(--card-shadow);
+}
+.card{padding:24px}
+.section-title{gap:14px}
+.heading{gap:22px}
+.heading h1{font-weight:400}
+.home-heading .daily-quote-card{min-height:250px;padding:clamp(24px,3vw,38px);border-left:1px solid var(--border);background:linear-gradient(145deg,#2D303C,var(--surface) 72%);box-shadow:var(--card-shadow)}
+.daily-quote-card::before{background:radial-gradient(ellipse at 100% 0,#3B1EFF20,transparent 60%);opacity:1}
+.heading .daily-quote-card .eyebrow{color:var(--accent);font-weight:600;letter-spacing:1.4px}
+.home-heading h1{font-weight:400;letter-spacing:-.04em}
+.today-grid .task-card{border-color:var(--border);background:var(--surface);box-shadow:var(--card-shadow)}
+.today-grid .task-card::before{background:radial-gradient(ellipse at 0 0,#5DF9C010,transparent 60%)}
+.task-card .task{margin:8px 0;padding:13px 15px;border:1px solid var(--border);border-radius:16px;background:var(--surface-soft);transition:border-color .18s ease,background .18s ease,transform .18s ease}
+.task-card .task:hover{border-color:color-mix(in srgb,var(--accent) 42%,var(--border));background:var(--surface-raised);transform:translateY(-1px)}
+.task-card .task.done{border-color:color-mix(in srgb,var(--accent) 30%,var(--border));background:var(--success-wash)}
+.progress-card .ring{filter:drop-shadow(0 8px 18px #5DF9C018)}
+.weekly-day{overflow:hidden;padding:0}
+.weekly-heading{min-height:74px;padding:16px 18px;background:var(--surface-raised)}
+.weekly-heading:hover{background:color-mix(in srgb,var(--surface-raised) 85%,var(--accent))}
+.weekly-tasks{padding:0 18px}
+.weekly-task{border-color:var(--border)}
+.weekly-day.is-today{border-color:color-mix(in srgb,var(--accent) 52%,var(--border));box-shadow:0 0 0 1px #5DF9C014,var(--card-shadow)}
+.stat-strip{background:linear-gradient(120deg,#5DF9C012,var(--surface) 65%);border-color:color-mix(in srgb,var(--accent) 22%,var(--border))}
+.stat-strip strong{color:var(--accent)}
+.month-tile{background:var(--surface);text-transform:capitalize;transition:border-color .18s ease,transform .18s ease,box-shadow .18s ease}
+.month-tile:hover{border-color:color-mix(in srgb,var(--accent) 48%,var(--border));transform:translateY(-3px);box-shadow:0 16px 34px #08091066}
+.bar{background:var(--surface-raised)}
+.calendar .day{border-radius:14px;background:color-mix(in srgb,var(--score) 8%,var(--surface-soft));border-color:color-mix(in srgb,var(--score) 25%,var(--border))}
+.calendar .day.current{outline-color:var(--accent)}
+.activity-card{padding:24px}
+.activity-square{border-radius:5px}
+.date-highlight{background:linear-gradient(120deg,#3B1EFF12,var(--surface) 70%)}
+.calendar .day>.calendar-label[data-color]{border-radius:9px}
+.field input,.pomodoro-settings select,.pomodoro-settings input,.field select,textarea{
+  border-color:var(--border-strong);
+  border-radius:14px;
+  background:var(--surface-soft);
+}
+.modal{padding:30px}
+.pomodoro-card{padding:24px}
+.pomodoro-card:not(.pomodoro-compact){background:linear-gradient(145deg,#2D303C,var(--surface) 65%)}
+.pomodoro-card .pomodoro-heading h2{font-weight:600}
+.pomodoro-status{border-color:var(--border);border-radius:999px;background:var(--surface-soft)}
+.pomodoro-modes button{border-radius:12px}
+.pomodoro-modes button.selected{border-color:#5DF9C044;background:var(--success-wash);color:var(--accent)}
+.pomodoro-ring{filter:drop-shadow(0 8px 22px #5DF9C014)}
+.pomodoro-ring>div{border-color:var(--surface-raised);background:var(--surface)}
+.pomodoro-ring strong{font-family:"Manrope","DM Sans",sans-serif;font-weight:500;letter-spacing:-.04em}
+.pomodoro-summary{min-width:0}
+.pomodoro-step-label{color:var(--gold);font-size:var(--font-size-sm);font-weight:600}
+.pomodoro-completions{color:var(--muted)}
+.pomodoro-compact{
+  position:relative;
+  cursor:pointer;
+  text-align:left;
+  transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease;
+}
+.pomodoro-compact:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--accent) 58%,var(--border));box-shadow:0 17px 38px #08091066}
+.pomodoro-compact:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+.pomodoro-compact .pomodoro-heading{margin-bottom:8px}
+.pomodoro-compact .pomodoro-heading h2{font-size:18px}
+.pomodoro-compact .pomodoro-center{display:flex;align-items:center;gap:18px;text-align:left}
+.pomodoro-compact .pomodoro-ring{width:128px;height:128px;flex:0 0 128px;margin:6px 0;padding:7px}
+.pomodoro-compact .pomodoro-ring strong{font-size:32px}
+.pomodoro-compact .pomodoro-ring span{font-size:10px}
+.pomodoro-compact .pomodoro-summary{flex:1}
+.pomodoro-compact .pomodoro-step-label{display:block;margin-bottom:8px}
+.pomodoro-compact .pomodoro-completions{font-size:12px}
+.pomodoro-compact .pomodoro-task{font-size:11px}
+.pomodoro-open-hint{display:flex;justify-content:flex-end;gap:8px;margin-top:10px;color:var(--accent);font-size:11px;font-weight:600}
+.pomodoro-alerts{flex-wrap:wrap}
+.pomodoro-page .pomodoro-card{padding:30px}
+.pomodoro-page .pomodoro-ring{background:conic-gradient(var(--accent) var(--pomodoro-progress),var(--border) 0)}
+.pomodoro-page .pomodoro-controls .primary{flex-basis:100%}
+.app:not(.auth-page) footer{color:var(--muted)}
+.launch-transition{background:var(--bg);font-weight:300;letter-spacing:.09em}
+.tab-transition span{font-weight:300;letter-spacing:.02em}
+@media(max-width:1120px){
+  .app:not(.auth-page) .home-heading .pomodoro-card{width:100%;max-width:none;flex-basis:auto}
+}
+@media(max-width:760px){
+  .app:not(.auth-page)>aside{
+    inset:auto 12px calc(10px + env(safe-area-inset-bottom));
+    left:50%;
+    width:calc(100% - 24px - env(safe-area-inset-left) - env(safe-area-inset-right));
+    max-width:680px;
+    height:68px;
+    padding:6px;
+    transform:translateX(-50%);
+    border:1px solid var(--border-strong);
+    border-radius:22px;
+    background:color-mix(in srgb,var(--surface-raised) 94%,transparent);
+    box-shadow:0 14px 36px #08091088;
+    backdrop-filter:blur(18px);
+  }
+  .app:not(.auth-page)>aside nav{grid-template-columns:repeat(6,minmax(0,1fr));gap:4px;margin:0}
+  .app:not(.auth-page)>aside nav button{min-height:54px;gap:3px;padding:4px 1px;border-radius:15px;font-size:clamp(8px,2.4vw,10px)}
+  .app:not(.auth-page)>aside nav button span{font-size:17px}
+  .app:not(.auth-page)>aside nav button.active{box-shadow:0 4px 14px #5DF9C026}
+  .app:not(.auth-page) main{padding-bottom:calc(112px + env(safe-area-inset-bottom))}
+  .app:not(.auth-page) .card,.app:not(.auth-page) .activity-card{border-radius:20px}
+  .app:not(.auth-page) .home-heading .daily-quote-card{min-height:190px;padding:22px}
+  .app:not(.auth-page) .home-heading .pomodoro-card{padding:18px}
+  .app:not(.auth-page) .pomodoro-compact .pomodoro-center{gap:12px}
+  .app:not(.auth-page) .pomodoro-compact .pomodoro-ring{width:112px;height:112px;flex-basis:112px}
+  .app:not(.auth-page) .pomodoro-compact .pomodoro-ring strong{font-size:27px}
+  .app:not(.auth-page) .pomodoro-compact .pomodoro-step-label{font-size:12px}
+  .app:not(.auth-page) .pomodoro-open-hint{margin-top:7px}
+  .app:not(.auth-page) .pomodoro-page .pomodoro-card{padding:21px 17px}
+  .app:not(.auth-page) .pomodoro-page .pomodoro-ring{width:190px;height:190px}
+}
+@media(max-width:370px){
+  .app:not(.auth-page)>aside{left:50%;right:auto;width:calc(100% - 16px - env(safe-area-inset-left) - env(safe-area-inset-right))}
+  .app:not(.auth-page)>aside nav button{font-size:8px}
+  .app:not(.auth-page)>aside nav button span{font-size:15px}
+  .app:not(.auth-page) .pomodoro-compact .pomodoro-ring{width:100px;height:100px;flex-basis:100px}
+  .app:not(.auth-page) .pomodoro-compact .pomodoro-ring strong{font-size:24px}
+}
+@media(prefers-reduced-motion:reduce){
+  .app:not(.auth-page)::before{animation:none}
+  .app:not(.auth-page) nav button,.app:not(.auth-page) .task-card .task,.app:not(.auth-page) .month-tile,.app:not(.auth-page) .pomodoro-compact{transition:none}
+}
+.app.light:not(.auth-page)>aside{background:linear-gradient(180deg,var(--surface-raised),var(--bg) 82%)}
+.app.light .home-heading .daily-quote-card,.app.light .pomodoro-card:not(.pomodoro-compact){background:linear-gradient(145deg,var(--surface-raised),var(--surface) 72%)}
+@media(max-width:760px){.app.light:not(.auth-page)>aside{background:color-mix(in srgb,var(--surface-raised) 94%,transparent)}}

@@ -1,7 +1,12 @@
 import {validGithubUsername} from './github-username.js';
 export const KEY = 'minha-rotina-v1';
-export const LABEL_COLORS = ['green','lime','blue','violet','rose','amber'];
-export const LABEL_COLOR_OPTIONS = ['green','blue','violet','rose'];
+export const LABEL_COLORS = ['red','yellow','green','lime','blue','violet','rose','amber'];
+export const LABEL_COLOR_OPTIONS = ['red','yellow','green'];
+export function labelUrgencyColor(color='green') {
+ if(color==='red'||color==='rose')return 'red';
+ if(color==='yellow'||color==='amber'||color==='blue'||color==='violet')return 'yellow';
+ return 'green';
+}
 export const POMODORO_MODES = ['focus','shortBreak','longBreak'];
 export const defaultPomodoro=()=>({durations:{focus:25,shortBreak:5,longBreak:15},mode:'focus',taskId:'',session:null});
 const QUOTES = [
@@ -43,6 +48,7 @@ export function dailyQuote(day,offset=0) {
 export function score(state,day) { const list=scheduled(state,day); return list.length?100*list.filter(t=>t.done).length/list.length:null; }
 export function average(state,list,cutoff=today()) { const values=list.filter(d=>d<=cutoff).map(d=>score(state,d)).filter(v=>v!==null); return values.length?values.reduce((a,b)=>a+b,0)/values.length:null; }
 export function revise(task,name,weekdays,day=today(),description=task.versions.at(-1).description||'',time=task.versions.at(-1).time||'',effectiveFrom=day,endTime=task.versions.at(-1).endTime||'') { return {...task,versions:[...task.versions.filter(v=>v.from<effectiveFrom),{from:effectiveFrom,name,description,days:weekdays,time:time||'',endTime:endTime||''}]}; }
+export function reviseTask(task,fields,day=today()) { const active=task.versions.filter(version=>version.from<=day).at(-1),current=active||task.versions.find(version=>version.from>day);const name=fields.name,weekdays=fields.days,description=fields.description===undefined?current.description||'':fields.description,time=fields.time===undefined?current.time||'':fields.time,endTime=fields.endTime===undefined?current.endTime||'':fields.endTime,scheduleChanged=weekdays.length!==current.days.length||weekdays.some(value=>!current.days.includes(value)),otherChanges=name!==current.name||description!==(current.description||'')||time!==(current.time||'')||endTime!==(current.endTime||'');if(!active)return revise(task,name,weekdays,day,description,time,current.from,endTime);if(scheduleChanged&&otherChanges){const updated=revise(task,name,current.days,day,description,time,day,endTime);return revise(updated,name,weekdays,day,description,time,add(day,1),endTime);}if(scheduleChanged)return revise(task,name,weekdays,day,description,time,add(day,1),endTime);return revise(task,name,weekdays,day,description,time,day,endTime); }
 export const empty=()=>({version:1,tasks:[],done:{},labels:{},order:{},pomodoro:defaultPomodoro()});
 function validatePomodoro(pomodoro,taskIds){
  const modes=POMODORO_MODES;

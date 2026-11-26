@@ -29,17 +29,17 @@
 .label-manager .hint{margin-bottom:20px}
 @media(max-width:760px){.period h2.month-selected{padding:8px 10px;font-size:18px}.period h2.month-selected::before{font-size:8px;letter-spacing:1px}.label-toolbar{align-items:flex-start;flex-direction:column}.date-highlight{padding:14px 12px;gap:10px;flex-wrap:wrap}.date-highlight strong{font-size:16px}.date-highlight .date-label-items{font-size:14px}.date-highlight .quiet{margin-left:31px}.calendar{gap:5px}.calendar-cell .day{padding:5px 3px;min-height:52px}.calendar-cell{border-radius:8px}.label-shortcut{font-size:11px}.day>.calendar-label{font-size:11px;padding:4px 2px}.label-manager-list li{align-items:flex-start;flex-direction:column}.label-manager-list .row-actions{width:100%}.label-toolbar .primary{width:100%}}
 @media(prefers-reduced-motion:reduce){.date-highlight{animation:none}}
-.calendar-label[data-color],.label-manager-list li[data-color]{--label-color:var(--success)}
-.calendar-label[data-color="blue"],.label-manager-list li[data-color="blue"]{--label-color:#8AB9EB}
-.calendar-label[data-color="violet"],.label-manager-list li[data-color="violet"]{--label-color:#C0A3EF}
-.calendar-label[data-color="rose"],.label-manager-list li[data-color="rose"]{--label-color:#EA9CA5}
-.light .calendar-label[data-color],.light .label-manager-list li[data-color]{--label-color:var(--success)}
-.light .calendar-label[data-color="blue"],.light .label-manager-list li[data-color="blue"]{--label-color:#386D9B}
-.light .calendar-label[data-color="violet"],.light .label-manager-list li[data-color="violet"]{--label-color:#72539D}
-.light .calendar-label[data-color="rose"],.light .label-manager-list li[data-color="rose"]{--label-color:#A54F5D}
-.calendar-label-count[data-color]{--label-color:var(--success)}
-.calendar-label-count[data-color="blue"]{--label-color:#8AB9EB}.calendar-label-count[data-color="violet"]{--label-color:#C0A3EF}.calendar-label-count[data-color="rose"]{--label-color:#EA9CA5}
-.light .calendar-label-count[data-color]{--label-color:var(--success)}.light .calendar-label-count[data-color="blue"]{--label-color:#386D9B}.light .calendar-label-count[data-color="violet"]{--label-color:#72539D}.light .calendar-label-count[data-color="rose"]{--label-color:#A54F5D}
+.calendar-label[data-color],.label-manager-list li[data-color],.calendar-label-count[data-color],.date-highlight[data-color],.date-label-item[data-color],.weekly-date-label[data-color]{--label-color:var(--success)}
+.calendar-label[data-color="red"],.label-manager-list li[data-color="red"],.calendar-label-count[data-color="red"],.date-highlight[data-color="red"],.date-label-item[data-color="red"],.weekly-date-label[data-color="red"]{--label-color:#F07882}
+.calendar-label[data-color="yellow"],.label-manager-list li[data-color="yellow"],.calendar-label-count[data-color="yellow"],.date-highlight[data-color="yellow"],.date-label-item[data-color="yellow"],.weekly-date-label[data-color="yellow"]{--label-color:#F2C66D}
+.light .calendar-label[data-color="red"],.light .label-manager-list li[data-color="red"],.light .calendar-label-count[data-color="red"],.light .date-highlight[data-color="red"],.light .date-label-item[data-color="red"],.light .weekly-date-label[data-color="red"]{--label-color:#A43D4A}
+.light .calendar-label[data-color="yellow"],.light .label-manager-list li[data-color="yellow"],.light .calendar-label-count[data-color="yellow"],.light .date-highlight[data-color="yellow"],.light .date-label-item[data-color="yellow"],.light .weekly-date-label[data-color="yellow"]{--label-color:#805800}
+.calendar-label[data-color],.weekly-date-label[data-color],.date-label-item[data-color]{color:var(--label-color)}
+.calendar-label[data-color]{background:color-mix(in srgb,var(--label-color) 12%,var(--bg));border-color:color-mix(in srgb,var(--label-color) 34%,var(--border))}
+.date-highlight[data-color]{background:color-mix(in srgb,var(--label-color) 10%,var(--surface));border-color:color-mix(in srgb,var(--label-color) 30%,var(--border));border-left:3px solid var(--label-color)}
+.date-highlight .label-symbol{color:var(--label-color)}
+.date-label-item[data-color]{border-left:2px solid var(--label-color);padding-left:8px}
+.weekly-date-label[data-color]{background:color-mix(in srgb,var(--label-color) 9%,var(--surface));border-color:color-mix(in srgb,var(--label-color) 24%,var(--border))}
 .label-manager-list li[data-color]{border-left:3px solid var(--label-color)}
 .label-manager-copy time{color:var(--label-color)}
 .label-color-picker{margin:0 0 18px}
@@ -47,6 +47,6 @@
 .label-color-picker .hint{display:block;margin:9px 0 0;font-size:12px}
 .label-color-option{width:32px;height:32px;min-width:32px;border:2px solid var(--border);border-radius:50%;background:var(--success)}
 .label-color-option[aria-pressed="true"]{outline:2px solid var(--text);outline-offset:3px}
-.label-color-option.blue{background:#8AB9EB}.label-color-option.violet{background:#C0A3EF}.label-color-option.rose{background:#EA9CA5}
-.light .label-color-option.green{background:var(--success)}.light .label-color-option.blue{background:#386D9B}.light .label-color-option.violet{background:#72539D}.light .label-color-option.rose{background:#A54F5D}
+.label-color-option.red{background:#F07882}.label-color-option.yellow{background:#F2C66D}.label-color-option.green{background:#5DF9C0}
+.light .label-color-option.red{background:#A43D4A}.light .label-color-option.yellow{background:#805800}.light .label-color-option.green{background:#08785B}
 @media(max-width:760px){.task-time-fields .task-time-inputs{grid-template-columns:repeat(2,minmax(0,1fr))}}
